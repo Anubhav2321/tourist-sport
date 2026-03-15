@@ -1,9 +1,9 @@
-/* General Styling with a Light Background */
+/* General Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f0f4f8; /* Halka sundar background color */
+    background-color: #f0f4f8; 
     color: #333;
 }
 
@@ -22,75 +22,71 @@ h1 {
     color: #2c3e50;
 }
 
-/* --- Main Page Grid Layout (Compressing the page) --- */
+/* Main Page Grid Layout */
 .main-container {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Pashapashi 2to card hobe */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 20px;
 }
 
-/* Individual Card Styling (Halka Design & Hover Effect) */
+/* Individual Card Styling */
 .spot-entry {
     display: flex;
     align-items: center;
     background-color: #fff;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Halka shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-/* Mouse rakhle card ektu opore uthbe (Lift effect) */
 .spot-entry:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
+/* Javascript theke asha class gulo */
+.clickable-card {
+    cursor: pointer;
+}
+.title-highlight {
+    color: #2980b9;
+    font-weight: bold;
+}
+.read-more-text {
+    color: #e74c3c;
+    font-size: 0.9em;
+    font-weight: bold;
+}
 .spot-image {
-    width: 120px; /* Image ektu choto kora hoyeche jate compact lage */
+    width: 120px; 
     height: 120px;
     object-fit: cover;
     border-radius: 8px;
     margin-right: 15px;
 }
-
 .spot-details {
     flex: 1;
 }
-
 .spot-title {
     margin: 0 0 8px 0;
     font-size: 1.3em;
 }
-
-.spot-title a {
-    text-decoration: none;
-    color: #2980b9;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
-.spot-title a:hover {
-    color: #e74c3c; /* Link hover korle color change hobe */
-}
-
 ul {
     margin: 0;
     padding-left: 20px;
     font-size: 0.9em;
 }
-
 li {
     margin-bottom: 5px;
     line-height: 1.4;
     color: #555;
 }
-
-/* --- Individual Detail Page Styling --- */
+/* Individual Detail Page Styling */
 .detail-container {
-    display: block; /* Grid layout ke override korar jonno */
+    display: none; /* Shurute hide kora thakbe */
     max-width: 800px;
     background-color: #fff;
     padding: 30px;
@@ -98,7 +94,6 @@ li {
     box-shadow: 0 6px 15px rgba(0,0,0,0.08);
     margin: 0 auto;
 }
-
 .large-image {
     width: 100%;
     max-height: 350px;
@@ -106,34 +101,32 @@ li {
     border-radius: 10px;
     margin-bottom: 25px;
 }
-
 .detail-container li {
     margin-bottom: 12px;
     line-height: 1.6;
     font-size: 1.05em;
     color: #444;
 }
-
-/* --- Bootstrap Style Animated Button --- */
+/* Back Button Styling */
 .back-button-container {
     text-align: center;
     margin-top: 35px;
 }
-
 .back-button {
     display: inline-block;
     padding: 12px 30px;
-    background: linear-gradient(135deg, #3498db, #2980b9); /* Sundar gradient color */
+    background: linear-gradient(135deg, #3498db, #2980b9); 
     color: white;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
     text-decoration: none;
-    border-radius: 25px; /* Gol (Pill) shape */
+    border-radius: 25px; 
     font-weight: bold;
     font-size: 1.1em;
     box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
-    transition: all 0.3s ease; /* Animation timing */
+    transition: all 0.3s ease; 
 }
-
-/* Button e hover korle ektu boro hobe (Scale & Pulse Effect) */
 .back-button:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 25px rgba(52, 152, 219, 0.6);

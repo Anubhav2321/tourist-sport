@@ -1,145 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourist Spots of India</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Spots of India</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Tourist Spots of India</h1></header>
-  <div class="main-container">
 
-    <div class="spot-entry">
-      <img src="images/tajmahal.jpg" alt="Taj Mahal" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="tajmahal-detail.html">Taj Mahal</a></h2>
-        <ul>
-          <li>Taj Mahal is a famous white marble mausoleum located in Agra.</li>
-          <li>It was built by Shah Jahan in memory of his wife Mumtaz Mahal.</li>
-          <li>Construction began in 1632 during the Mughal Empire and took about 20 years to complete.</li>
-          <li>The Taj Mahal is recognized as a UNESCO World Heritage Site.</li>
-        </ul>
-      </div>
+    <header>
+        <h1 id="page-title">Tourist Spots of India</h1>
+    </header>
+
+    <div id="list-view" class="main-container">
+        </div>
+
+    <div id="detail-view" class="detail-container">
+        <img id="detail-image" src="" alt="" class="large-image">
+        <ul id="detail-list">
+            </ul>
+        <div class="back-button-container">
+            <button onclick="goBack()" class="back-button">Back to List</button>
+        </div>
     </div>
 
-    <div class="spot-entry">
-      <img src="images/amberpalace.jpg" alt="Amber Palace" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="amberpalace-detail.html">Amber Palace</a></h2>
-        <ul>
-          <li>Amber Palace is a famous fort and palace in Jaipur.</li>
-          <li>It was built by Raja Man Singh I.</li>
-          <li>The palace is known for its beautiful architecture made of red sandstone and marble.</li>
-          <li>It is a popular tourist attraction visited by many people every year.</li>
-        </ul>
-      </div>
-    </div>
+    <script>
+        const spots = [
+            {
+                id: 'tajmahal', title: 'Taj Mahal', img: 'images/tajmahal.jpg',
+                details: [
+                    "Taj Mahal is a famous white marble mausoleum located in Agra.",
+                    "It was built by Shah Jahan in memory of his wife Mumtaz Mahal.",
+                    "Construction began in 1632 during the Mughal Empire and took about 20 years to complete.",
+                    "The Taj Mahal is recognized as a UNESCO World Heritage Site."
+                ]
+            },
+            {
+                id: 'amberpalace', title: 'Amber Palace', img: 'images/amberpalace.jpg',
+                details: [
+                    "Amber Palace is a famous fort and palace in Jaipur.",
+                    "It was built by Raja Man Singh I.",
+                    "The palace is known for its beautiful architecture made of red sandstone and marble.",
+                    "It is a popular tourist attraction visited by many people every year."
+                ]
+            },
+            {
+                id: 'gatewayofindia', title: 'Gateway of India', img: 'images/gatewayofindia.jpg',
+                details: [
+                    "Gateway of India is a famous monument in Mumbai.",
+                    "It was built in 1924 during the British rule in India.",
+                    "It was built to welcome George V and Mary of Teck to India.",
+                    "It is a popular tourist attraction near the Arabian Sea."
+                ]
+            },
+            {
+                id: 'mehrangarhfort', title: 'Mehrangarh Fort', img: 'images/mehrangarhfort.jpg',
+                details: [
+                    "Mehrangarh Fort is a famous fort in Jodhpur.",
+                    "It was built by Rao Jodha in 1459.",
+                    "The fort stands on a high hill and gives a beautiful view of the city.",
+                    "It is one of the largest and most popular tourist attractions in Rajasthan."
+                ]
+            },
+            {
+                id: 'redfort', title: 'Red Fort', img: 'images/redfort.jpg',
+                details: [
+                    "Red Fort is a famous historic fort in Delhi.",
+                    "It was built by Shah Jahan in 1639.",
+                    "The fort is made of red sandstone and is known for its beautiful architecture.",
+                    "It is a popular tourist site and a symbol of India's independence."
+                ]
+            },
+            {
+                id: 'ranthambore', title: 'Ranthambore National Park', img: 'images/ranthambore.jpg',
+                details: [
+                    "Ranthambore National Park is a famous wildlife sanctuary in Rajasthan.",
+                    "It is well known for its population of Bengal tigers.",
+                    "The park also has leopards, crocodiles, and many species of birds.",
+                    "It is a popular destination for safari and wildlife photography."
+                ]
+            },
+            {
+                id: 'mysurupalace', title: 'Mysuru Palace', img: 'images/mysurupalace.jpg',
+                details: [
+                    "Mysuru Palace is a famous palace in Mysuru.",
+                    "It was the residence of the Wodeyar dynasty.",
+                    "The palace is known for its beautiful architecture and grandeur.",
+                    "It is a popular tourist attraction, especially during the Dussehra festival."
+                ]
+            },
+            {
+                id: 'hawamahal', title: 'Hawa Mahal', img: 'images/hawamahal.jpg',
+                details: [
+                    "Hawa Mahal is a famous palace in Jaipur.",
+                    "It was built by Maharaja Sawai Pratap Singh in 1799.",
+                    "The palace is known for its unique honeycomb-like facade with many small windows.",
+                    "It allowed royal women to observe street life without being seen."
+                ]
+            },
+            {
+                id: 'qutubminar', title: 'Qutub Minar', img: 'images/qutubminar.jpg',
+                details: [
+                    "Located in Delhi, Qutub Minar is a UNESCO World Heritage Site.",
+                    "It is a 73-meter tall minaret made of red sandstone and marble.",
+                    "Construction was started by Qutb-ud-din Aibak in 1199 and completed by Iltutmish.",
+                    "It is a prominent example of early Indo-Islamic architecture."
+                ]
+            },
+            {
+                id: 'hampi', title: 'Group of Monuments at Hampi', img: 'images/hampi.jpg',
+                details: [
+                    "Located in Karnataka, Hampi is a UNESCO World Heritage Site.",
+                    "It was the capital of the Vijaynagar Empire in the 14th century.",
+                    "The site features stunning temples, palaces, and bazaar areas carved from rocks.",
+                    "The Virupaksha Temple is one of its notable structures."
+                ]
+            }
+        ];
 
-    <div class="spot-entry">
-      <img src="images/gatewayofindia.jpg" alt="Gateway of India" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="gatewayofindia-detail.html">Gateway of India</a></h2>
-        <ul>
-          <li>Gateway of India is a famous monument in Mumbai.</li>
-          <li>It was built in 1924 during the British rule in India.</li>
-          <li>It was built to welcome George V and Mary of Teck to India.</li>
-          <li>It is a popular tourist attraction near the Arabian Sea.</li>
-        </ul>
-      </div>
-    </div>
+        const listView = document.getElementById('list-view');
+        const detailView = document.getElementById('detail-view');
+        const pageTitle = document.getElementById('page-title');
 
-    <div class="spot-entry">
-      <img src="images/mehrangarhfort.jpg" alt="Mehrangarh Fort" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="mehrangarhfort-detail.html">Mehrangarh Fort</a></h2>
-        <ul>
-          <li>Mehrangarh Fort is a famous fort in Jodhpur.</li>
-          <li>It was built by Rao Jodha in 1459.</li>
-          <li>The fort stands on a high hill and gives a beautiful view of the city.</li>
-          <li>It is one of the largest and most popular tourist attractions in Rajasthan.</li>
-        </ul>
-      </div>
-    </div>
+        function renderList() {
+            listView.innerHTML = '';
+            spots.forEach(spot => {
+                listView.innerHTML += `
+                    <div class="spot-entry clickable-card" onclick="showDetail('${spot.id}')">
+                        <img src="${spot.img}" alt="${spot.title}" class="spot-image">
+                        <div class="spot-details">
+                            <h2 class="spot-title"><span class="title-highlight">${spot.title}</span></h2>
+                            <ul>
+                                <li>${spot.details[0]}</li>
+                                <li>${spot.details[1]} <span class="read-more-text">(Click to read more...)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            });
+        }
 
-    <div class="spot-entry">
-      <img src="images/redfort.jpg" alt="Red Fort" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="redfort-detail.html">Red Fort</a></h2>
-        <ul>
-          <li>Red Fort is a famous historic fort in Delhi.</li>
-          <li>It was built by Shah Jahan in 1639.</li>
-          <li>The fort is made of red sandstone and is known for its beautiful architecture.</li>
-          <li>It is a popular tourist site and a symbol of India's independence.</li>
-        </ul>
-      </div>
-    </div>
+        function showDetail(id) {
+            const spot = spots.find(s => s.id === id); 
+            
+            document.getElementById('detail-image').src = spot.img;
+            document.getElementById('detail-image').alt = spot.title;
+            
+            const ul = document.getElementById('detail-list');
+            ul.innerHTML = '';
+            spot.details.forEach(detail => {
+                ul.innerHTML += `<li>${detail}</li>`;
+            });
 
-    <div class="spot-entry">
-      <img src="images/ranthambore.jpg" alt="Ranthambore" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="ranthambore-detail.html">Ranthambore National Park</a></h2>
-        <ul>
-          <li>Ranthambore National Park is a famous wildlife sanctuary in Rajasthan.</li>
-          <li>It is well known for its population of Bengal tigers.</li>
-          <li>The park also has leopards, crocodiles, and many species of birds.</li>
-          <li>It is a popular destination for safari and wildlife photography.</li>
-        </ul>
-      </div>
-    </div>
+            pageTitle.innerText = spot.title;
+            listView.style.display = 'none'; 
+            detailView.style.display = 'block'; 
+            window.scrollTo(0, 0); 
+        }
 
-    <div class="spot-entry">
-      <img src="images/mysurupalace.jpg" alt="Mysuru Palace" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="mysurupalace-detail.html">Mysuru Palace</a></h2>
-        <ul>
-          <li>Mysuru Palace is a famous palace in Mysuru.</li>
-          <li>It was the residence of the Wodeyar dynasty.</li>
-          <li>The palace is known for its beautiful architecture and grandeur.</li>
-          <li>It is a popular tourist attraction, especially during the Dussehra festival.</li>
-        </ul>
-      </div>
-    </div>
+        function goBack() {
+            pageTitle.innerText = 'Tourist Spots of India';
+            detailView.style.display = 'none'; 
+            listView.style.display = 'grid'; 
+            window.scrollTo(0, 0);
+        }
 
-    <div class="spot-entry">
-      <img src="images/hawamahal.jpg" alt="Hawa Mahal" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="hawamahal-detail.html">Hawa Mahal</a></h2>
-        <ul>
-          <li>Hawa Mahal is a famous palace in Jaipur.</li>
-          <li>It was built by Maharaja Sawai Pratap Singh in 1799.</li>
-          <li>The palace is known for its unique honeycomb-like facade with many small windows.</li>
-          <li>It allowed royal women to observe street life without being seen.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="spot-entry">
-      <img src="images/qutubminar.jpg" alt="Qutub Minar" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="qutubminar-detail.html">Qutub Minar</a></h2>
-        <ul>
-          <li>Located in Delhi, Qutub Minar is a UNESCO World Heritage Site.</li>
-          <li>It is a 73-meter tall minaret made of red sandstone and marble.</li>
-          <li>Construction was started by Qutb-ud-din Aibak in 1199 and completed by Iltutmish.</li>
-          <li>It is a prominent example of early Indo-Islamic architecture.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="spot-entry">
-      <img src="images/hampi.jpg" alt="Hampi" class="spot-image">
-      <div class="spot-details">
-        <h2 class="spot-title"><a href="hampi-detail.html">Group of Monuments at Hampi</a></h2>
-        <ul>
-          <li>Located in Karnataka, Hampi is a UNESCO World Heritage Site.</li>
-          <li>It was the capital of the Vijaynagar Empire in the 14th century.</li>
-          <li>The site features stunning temples, palaces, and bazaar areas carved from rocks.</li>
-          <li>The Virupaksha Temple is one of its notable structures.</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
+        renderList();
+    </script>
 </body>
 </html>
